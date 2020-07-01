@@ -53,6 +53,21 @@ const NPM_LEVEL_NAME_TO_CODE = {
 };
 
 // Map of Stackdriver Logging levels.
+const SEVERITY_STACKDRIVER_LOGGING_LEVEL_CODE_TO_NAME: {
+  [key: string]: number;
+} = {
+  'emergency':800,
+  'alert':700,
+  'critical':600,
+  'error':500,
+  'warning':400,
+  'notice':300,
+  'info':200,
+  'debug':100,
+};
+
+
+// Map of Stackdriver Logging levels.
 const STACKDRIVER_LOGGING_LEVEL_CODE_TO_NAME: {
   [key: number]: SeverityNames;
 } = {
@@ -65,6 +80,7 @@ const STACKDRIVER_LOGGING_LEVEL_CODE_TO_NAME: {
   6: 'info',
   7: 'debug',
 };
+
 
 /*!
  * Log entry data key to allow users to indicate a trace for the request.
@@ -228,7 +244,7 @@ export class LoggingCommon {
       delete data.metadata!.timestamp;
       delete data.metadata!.logName;
     }
-
+    entryMetadata.severity=SEVERITY_STACKDRIVER_LOGGING_LEVEL_CODE_TO_NAME[stackdriverLevel];
     const entry = this.stackdriverLog.entry(entryMetadata, data);
     this.stackdriverLog[stackdriverLevel](entry, callback);
   }
