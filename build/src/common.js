@@ -27,14 +27,14 @@ const NPM_LEVEL_NAME_TO_CODE = {
 };
 // Map of Stackdriver Logging levels.
 const SEVERITY_STACKDRIVER_LOGGING_LEVEL_CODE_TO_NAME = {
-    'emergency': 800,
-    'alert': 700,
-    'critical': 600,
-    'error': 500,
-    'warning': 400,
-    'notice': 300,
-    'info': 200,
-    'debug': 100,
+    'emergency': 'EMERGENCY',
+    'alert': 'ALERT',
+    'critical': 'CRITICAL',
+    'error': 'ERROR',
+    'warning': 'WARNING',
+    'notice': 'NOTICE',
+    'info': 'INFO',
+    'debug': 'DEFAULT',
 };
 // Map of Stackdriver Logging levels.
 const STACKDRIVER_LOGGING_LEVEL_CODE_TO_NAME = {
